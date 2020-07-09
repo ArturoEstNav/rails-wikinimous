@@ -1,7 +1,14 @@
-<header>
+<header class="bg-light p-2 text-secondary border-bottom" >
   <p>Wikinimous</p>
 </header>
-<article>
-  <h3><%= article.title%></h3>
-  <p><%= article.content%></p>
+<article class="bg-white p-4">
+  <div class="container w-75 p-3">
+    <h3><%= @article.title%></h3>
+    <span><%= link_to "edit", edit_article_path %></span>
+    <span><%= link_to "delete",
+                  article_path(@article),
+                  method: :delete,
+                  data: { confirm: "Are you sure?" }%></span>
+    <p><%= @article.content%></p>
+  </div>
 </article>

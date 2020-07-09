@@ -1,13 +1,15 @@
-<header>
+<header class="bg-light p-2 text-secondary border-bottom" >
   <p>Wikinimous</p>
 </header>
-<article>
-  <ul>
-    <% @articles.each do |article| %>
-    <li>
-      <h3><%= article.title%></h3>
-      <p><%= article.content%></p>
-    </li>
-    <% end %>
-  </ul>
+<article class="bg-white p-4">
+  <div class="container w-75 p-3">
+    <ul>
+      <% @articles.each do |article| %>
+      <li class="p-2">
+        <h3 class="text-primary"><%= link_to article.title, article_path(article.id)%></h3>
+        <p class="text-dark"><%= article.content%></p>
+      </li>
+      <% end %>
+    </ul>
+  </div>
 </article>
