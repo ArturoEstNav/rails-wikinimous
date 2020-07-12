@@ -21,9 +21,15 @@ class ArticlesController < ApplicationController
   end
 
   def update
+    @article.update(article_params)
+    @article.save
+    redirect_to article_path(@article.id)
   end
 
   def destroy
+    @article = Article.find(params[:id])
+    @article.destroy
+    redirect_to articles_path
   end
 
   private
@@ -33,6 +39,6 @@ class ArticlesController < ApplicationController
   end
 
   def article_params
-    params.require(:article)
+    params.require(:article).permit(:name, :content)
   end
 end
